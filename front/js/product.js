@@ -32,7 +32,7 @@ fetch(`http://localhost:3000/api/products/${id}`)
             const couleurs = document.createElement('option') 
             couleurs.innerHTML = `<option value="${value.colors[i]}">${value.colors[i]}</option>`
             //console.log(couleurs)
-            color.append(couleurs) // SACRé LIGNE DE CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            color.append(couleurs)
             //return couleurs | marche pas
         }
     })
@@ -43,10 +43,20 @@ fetch(`http://localhost:3000/api/products/${id}`)
 function ajoutPanier () {
     const addcart = document.querySelector("#addToCart")
     addcart.addEventListener("click", () =>{
+        //loger le produit pour le localestorage
         const color = document.querySelector('#colors').value
         const quantity = document.querySelector('#quantity').value
-        console.log(color)
-        console.log(quantity)
+        const price = document.querySelector('#price').textContent
+        //choisir une couleur et une quantitées réel
+        if (color == "" || quantity <= 0 || quantity >= 101) {
+            return alert("Choisiez une couleur et une quantitées entre 1 et 100.")
+        }
+        const data = {
+            id: id,
+            quantity: Number(quantity),
+            color: color,
+        }
+        localStorage.setItem(id, JSON.stringify(data))
     })
 }
 ajoutPanier()
