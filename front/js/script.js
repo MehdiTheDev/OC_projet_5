@@ -6,15 +6,6 @@ function getProduct (){
         }
     })
     .then(function(products){
-        /*document.getElementById('items').innerHTML = value.map(item => 
-        `<a href="./product.html?id=${item._id}">
-        <article>
-          <img src=${item.imageUrl} alt="Lorem ipsum dolor sit amet, Kanap name1">
-          <h3 class="productName">${item.name}</h3>
-          <p class="productDescription">${item.description}</p>
-        </article>
-      </a>`).join('')*/
-        
         for (let i = 0; i < products.length; i++){
             const product = products[i]
             
@@ -22,7 +13,7 @@ function getProduct (){
             // Récupération de l'élément du DOM
             //Target la section hôte
             const lienElt = document.createElement('a')
-            lienElt.href = `./product.html?id=${product._id}">`
+            lienElt.href = `./product.html?id=${product._id}`
             
             const articleElt = document.createElement('article')
 
