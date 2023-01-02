@@ -1,5 +1,5 @@
 const id = window.location.search.split("?id=").join("")
-console.log(id)
+//console.log(id)
 
 fetch(`http://localhost:3000/api/products/${id}`)
     .then(function(res){
@@ -39,3 +39,14 @@ fetch(`http://localhost:3000/api/products/${id}`)
     .catch(function(error){
         console.log(error)
 })
+
+function ajoutPanier () {
+    const addcart = document.querySelector("#addToCart")
+    addcart.addEventListener("click", () =>{
+        const color = document.querySelector('#colors').value
+        const quantity = document.querySelector('#quantity').value
+        console.log(color)
+        console.log(quantity)
+    })
+}
+ajoutPanier()
