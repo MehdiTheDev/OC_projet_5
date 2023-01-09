@@ -35,8 +35,7 @@ function getProduct (){
             articleElt.appendChild(paragraphElt)
             lienElt.appendChild(articleElt)
             sectionItems.appendChild(lienElt)
-        }
-        
+        }       
     })
     .catch(function(error){
         console.log(error)
