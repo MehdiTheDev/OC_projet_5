@@ -41,8 +41,26 @@ fetch(`http://localhost:3000/api/products/${id}`)
 })
 
 
+function panier () {
+    //Target le bouton et lui ajouter un eventlistener
+    const boutton = document.querySelector("#addToCart")
+    //setup du localestorage
+    let cart = []
+    localStorage.setItem("produitDuPannier", JSON.stringify(cart))
 
+    boutton.addEventListener("click", () => {
+        //defenir les objets
+        let quantitee = document.querySelector("#quantity").value
+        let couleur = document.querySelector("#colors").value
 
+        //message d'erreur en cas de mauvaise selection des couleurs ou des quantitées
+        if (couleur == "" || quantitee >= 101 || quantitee <= 0){
+            return window.alert("merci de choisir une couleur et une quantité")
+        }
+
+    })
+}
+panier()
 
 
 
