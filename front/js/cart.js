@@ -160,7 +160,7 @@ function prixTotal() {
     }
     let shownPrice = document.querySelector("#totalPrice")
     shownPrice.textContent = result
-    console.log(product.price)
+    //console.log(product.price)
 }
 
 //mise a jour du panier
@@ -171,6 +171,17 @@ function majPannier(kanapPannier) {
         localStorage.setItem("produitDuPannier", JSON.stringify(kanapPannier))
     }
 }
+
+//Trie du pannier selon l'ID
+trie()
+function trie () {
+    const cartKanap = Array.from(kanapPannier)
+    cartKanap.sort(function (a, b){
+        return a._id - b._id
+    })
+    console.log(cartKanap)
+}
+
 
 /* formulaire commande  */
 let formulaireDeCommande = () => {
