@@ -3,7 +3,7 @@ let kanapPannier = JSON.parse(localStorage.getItem("produitDuPannier"))
 
 //Ajout des produits
 //Condition de vérification
-
+trie()
 kanapPannier.map((objet) => {
     let idArticle = objet._id
     let couleurArticle = objet.color
@@ -173,13 +173,20 @@ function majPannier(kanapPannier) {
 }
 
 //Trie du pannier selon l'ID
-trie()
 function trie () {
-    const cartKanap = Array.from(kanapPannier)
-    cartKanap.sort(function (a, b){
+    kanapPannier.sort((a, b) => {
+        if(a._id < b._id) {
+            return -1
+        }
+        if(a._id > b._id) {
+            return 1
+        }
+        return 0
+    })
+    /*kanapPannier.sort(function (a, b) {
         return a._id - b._id
     })
-    console.log(cartKanap)
+    */console.log(kanapPannier)
 }
 
 
